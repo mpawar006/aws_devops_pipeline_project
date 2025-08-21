@@ -1,76 +1,136 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mahesh EC2 Server</title>
-        <style>
-            * {
-                box-sizing: border-box;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahesh's EC2 Server</title>
+    <style>
+        :root {
+            --primary-color: #A52A2A; /* A more descriptive name for 'brown' */
+            --light-gray: #f1f1f1;
+            --medium-gray: #ccc;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: var(--light-gray);
+            background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain.svg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        nav {
+            flex: 1;
+            background: var(--medium-gray);
+            padding: 20px;
+            min-height: 300px;
+            border-right: 2px solid var(--light-gray);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        article {
+            flex: 3;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
             }
 
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                background-attachment: fixed;
-                background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain.svg);
+            nav, article {
+                width: 100%;
+                border-right: none;
+                min-height: auto;
             }
+        }
+    </style>
+</head>
+<body>
 
-            header {
-                background-color: brown;
-                padding: 10px;
-                text-align: center;
-                font-size: 35px;
-                color: white;
-            }
-
-            nav {
-                float: left;
-                width: 20%;
-                height: 300px;
-                background: #ccc;
-                padding: 20px;
-            }
-
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-            article {
-                float: left;
-                padding: 20px;
-                width: 80%;
-                background-color: #f1f1f1;
-                height: 300px; /* only for demonstration, should be removed */
-            }
-
-            section:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            h1 {
-                color: whitesmoke;
-            }
-
-            figure {
-                display: flex;
-                align-items: center;
-            }
-
-            figure p {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain.svg" alt="logo" width="100" height="42">
-        <h1 align="center">Welcome to Mahesh webserver</h1>
+    <div class="container">
         <header>
-            <h2>Mahesh Server Example</h2>
+            <h1>Welcome to Mahesh's Webserver</h1>
+            <h2>AWS Server Example</h2>
         </header>
-        <section>
+
+        <div class="main-content">
             <nav>
                 <ul>
                     <li><a href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
@@ -78,14 +138,22 @@
                     <li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a></li>
                 </ul>
             </nav>
+
             <article>
-                <figure>
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" width="1800" height="250">
-                    <div align=center>
-                        <p>Amazon Web Services is the world’s biggest cloud provider which is owned by Amazon. They provide a set of on-demand services to the customers via the internet or “The Cloud”. Also, you get a pay-as-you-go option where you need to only pay for what you use.</p>
-                    </div>
-                </figure>
+                <div class="image-container">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker Logo">
+                </div>
+                
+                <div class="content-box">
+                    <p>Amazon Web Services is the world’s biggest cloud provider, owned by Amazon. They provide a set of on-demand services to customers via the internet, or “The Cloud.” You also get a pay-as-you-go option, so you only pay for what you use.</p>
+                </div>
             </article>
-        </section>
-    </body>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Mahesh's Server. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>
