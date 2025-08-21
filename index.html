@@ -4,56 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahesh's EC2 Server</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Global Variables & Resets */
         :root {
-            --primary-color: #A52A2A; /* A more descriptive name for 'brown' */
-            --light-gray: #f1f1f1;
-            --medium-gray: #ccc;
+            --primary-color: #007bff; /* A nice blue, common in tech branding */
+            --accent-color: #28a745; /* A vibrant green */
+            --dark-color: #212529;
+            --light-color: #ffffff;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            background-color: var(--light-gray);
-            background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain.svg');
+            color: var(--dark-color);
+            background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Overlay to make text readable */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
-            margin: auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            max-width: 1000px;
+            margin: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         header {
-            background-color: var(--primary-color);
-            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 30px 20px;
             text-align: center;
-            color: white;
+            color: var(--light-color);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-out;
         }
 
         header h1 {
             font-size: 2.5em;
+            font-weight: 700;
             margin: 0;
+            letter-spacing: 1px;
         }
 
+        header h2 {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin: 5px 0 0;
+            color: #d1e7dd;
+        }
+        
         .main-content {
             display: flex;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         nav {
             flex: 1;
-            background: var(--medium-gray);
             padding: 20px;
-            min-height: 300px;
-            border-right: 2px solid var(--light-gray);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            min-width: 200px;
         }
 
         nav ul {
@@ -64,20 +102,29 @@
 
         nav a {
             display: block;
-            padding: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
             text-decoration: none;
-            color: #333;
-            transition: background-color 0.3s;
+            color: var(--dark-color);
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         nav a:hover {
-            background-color: #ddd;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
         }
 
         article {
             flex: 3;
             padding: 20px;
-            background-color: #f1f1f1;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .image-container {
@@ -88,46 +135,41 @@
         .image-container img {
             max-width: 100%;
             height: auto;
-        }
-
-        .content-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         p {
-            line-height: 1.6;
+            line-height: 1.8;
+            color: var(--dark-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            color: #777;
-            border-top: 1px solid #ddd;
-        }
-
+        /* Responsive design */
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
             }
+        }
 
-            nav, article {
-                width: 100%;
-                border-right: none;
-                min-height: auto;
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>Welcome to Mahesh's Webserver</h1>
-            <h2>AWS Server Example</h2>
+            <h2>Powered by AWS</h2>
         </header>
 
         <div class="main-content">
@@ -141,19 +183,12 @@
 
             <article>
                 <div class="image-container">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker Logo">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker Logo" width="180" height="180">
                 </div>
                 
-                <div class="content-box">
-                    <p>Amazon Web Services is the world’s biggest cloud provider, owned by Amazon. They provide a set of on-demand services to customers via the internet, or “The Cloud.” You also get a pay-as-you-go option, so you only pay for what you use.</p>
-                </div>
+                <p>Amazon Web Services is the world’s biggest cloud provider, owned by Amazon. They provide a set of on-demand services to customers via the internet, or “The Cloud.” You also get a pay-as-you-go option, so you only pay for what you use.</p>
             </article>
         </div>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 Mahesh's Server. All rights reserved.</p>
-    </footer>
-
 </body>
 </html>
