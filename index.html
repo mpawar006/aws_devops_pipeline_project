@@ -10,7 +10,7 @@
     <style>
         /* Global Variables & Resets */
         :root {
-            --primary-color: #007bff; /* A nice blue, common in tech branding */
+            --primary-color: #007bff; /* AWS Blue */
             --accent-color: #28a745; /* A vibrant green */
             --dark-color: #212529;
             --light-color: #ffffff;
@@ -100,10 +100,15 @@
             margin: 0;
         }
 
-        nav a {
-            display: block;
-            padding: 12px 15px;
+        nav li {
             margin-bottom: 10px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
             text-decoration: none;
             color: var(--dark-color);
             background-color: #f8f9fa;
@@ -117,6 +122,11 @@
             color: var(--light-color);
             transform: translateY(-3px);
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
         }
 
         article {
@@ -169,24 +179,69 @@
     <div class="container">
         <header>
             <h1>Welcome to Mahesh's Webserver</h1>
-            <h2>Powered by AWS</h2>
+            <h2>Powered by AWS DevOps</h2>
         </header>
 
         <div class="main-content">
             <nav>
                 <ul>
-                    <li><a href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
-                    <li><a href="https://aws.amazon.com/s3/">AWS S3</a></li>
-                    <li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a></li>
+                    <li>
+                        <a href="https://aws.amazon.com/codepipeline/">
+                            <img class="nav-icon" src="" alt="CodePipeline Logo">
+                            AWS CodePipeline
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/codebuild/">
+                            <img class="nav-icon" src="" alt="CodeBuild Logo">
+                            AWS CodeBuild
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/codedeploy/">
+                            <img class="nav-icon" src="
+
+http://googleusercontent.com/image_collection/image_retrieval/1956628369356063468_0
+" alt="CodeDeploy Logo">
+                            AWS CodeDeploy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/cloudformation/">
+                            <img class="nav-icon" src="" alt="CloudFormation Logo">
+                            AWS CloudFormation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/ec2/">
+                            <img class="nav-icon" src="
+
+http://googleusercontent.com/image_collection/image_retrieval/15667218564400390813_0
+" alt="EC2 Logo">
+                            AWS EC2
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/s3/">
+                            <img class="nav-icon" src="" alt="S3 Logo">
+                            AWS S3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aws.amazon.com/lambda/">
+                            <img class="nav-icon" src="" alt="Lambda Logo">
+                            AWS Lambda
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <article>
                 <div class="image-container">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker Logo" width="180" height="180">
+                    <img src="" alt="AWS CodePipeline Logo" width="180" height="180">
                 </div>
                 
-                <p>Amazon Web Services is the world’s biggest cloud provider, owned by Amazon. They provide a set of on-demand services to customers via the internet, or “The Cloud.” You also get a pay-as-you-go option, so you only pay for what you use.</p>
+                <p>Welcome to the world of AWS DevOps! This server exemplifies a modern Continuous Integration and Continuous Deployment (CI/CD) pipeline. AWS CodePipeline automates the build, test, and deploy phases, while services like CodeBuild and CodeDeploy handle the heavy lifting of compiling code and pushing it to servers. This automated approach ensures that new features and updates are delivered quickly and reliably to users.</p>
             </article>
         </div>
     </div>
